@@ -9,7 +9,6 @@ def get_submissions(client, invitation):
     print(f"초대정보 {invitation}의 제출물 수: {len(submissions)}")
     return submissions
 
-
 def get_forum_dict(client, invitation):
     forum_dict = {}
     submissions = get_submissions(client, invitation)

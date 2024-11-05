@@ -30,7 +30,20 @@ def create_db():
     CREATE TABLE IF NOT EXISTS review (
         id VARCHAR(255) NOT NULL PRIMARY KEY,
         forum VARCHAR(255) NOT NULL,
-        content TEXT NOT NULL,
+        confidence INT,
+        confidence_reasoning TEXT,
+        summary_of_the_paper TEXT,
+        strength_and_weaknesses TEXT,
+        clarity_quality_novelty_and_reproducibility TEXT,
+        summary_of_the_review TEXT,
+        correctness INT,
+        correctness_reasoning TEXT,
+        technical_novelty_and_significance INT,
+        technical_novelty_and_significance_reasoning TEXT,
+        empirical_novelty_and_significance INT,
+        empirical_novelty_and_significance_reasoning TEXT,
+        recommendation INT,
+        recommendation_reasoning TEXT,
         signatures VARCHAR(255) NOT NULL,
         invitation VARCHAR(255) NOT NULL,
         cdate TIMESTAMP NOT NULL,
@@ -65,12 +78,32 @@ def insert_review(db, cursor, review_entity):
     # review 데이터 삽입
     try:
         cursor.execute("""
-        INSERT INTO review (id, forum, content, signatures, invitation, cdate)
-        VALUES (%s, %s, %s, %s, %s, %s)
+        INSERT INTO review (id, forum, 
+                       confidence, confidence_reasoning, summary_of_the_paper, 
+                       strength_and_weaknesses, clarity_quality_novelty_and_reproducibility, summary_of_the_review, 
+                       correctness, correctness_reasoning, 
+                       technical_novelty_and_significance, technical_novelty_and_significance_reasoning, 
+                       empirical_novelty_and_significance, empirical_novelty_and_significance_reasoning, 
+                       recommendation, recommendation_reasoning, 
+                       signatures, invitation, cdate)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
         """, (
             review_entity['id'],
             review_entity['forum'],
-            review_entity['content'],
+            review_entity['confidence'],
+            review_entity['confidence_reasoning'],
+            review_entity['summary_of_the_paper'],
+            review_entity['strength_and_weaknesses'],
+            review_entity['clarity_quality_novelty_and_reproducibility'],
+            review_entity['summary_of_the_review'],
+            review_entity['correctness'],
+            review_entity['correctness_reasoning'],
+            review_entity['technical_novelty_and_significance'],
+            review_entity['technical_novelty_and_significance_reasoning'],
+            review_entity['empirical_novelty_and_significance'],
+            review_entity['empirical_novelty_and_significance_reasoning'],
+            review_entity['recommendation'],
+            review_entity['recommendation_reasoning'],
             review_entity['signatures'],
             review_entity['invitation'],
             review_entity['cdate']

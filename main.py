@@ -14,16 +14,6 @@ db, cursor = database.create_db()
 
 invitations = [
     'ICLR.cc/2023/Conference/-/Blind_Submission',
-    'ICLR.cc/2022/Conference/-/Blind_Submission',
-    'ICLR.cc/2021/Conference/-/Blind_Submission',
-    'ICLR.cc/2020/Conference/-/Blind_Submission',
-    'ICLR.cc/2019/Conference/-/Blind_Submission',
-    'ICLR.cc/2018/Conference/-/Blind_Submission',
-    'ICLR.cc/2017/Conference/-/Blind_Submission',
-    'ICLR.cc/2016/Conference/-/Blind_Submission',
-    'ICLR.cc/2015/Conference/-/Blind_Submission',
-    'ICLR.cc/2014/Conference/-/Blind_Submission',
-    'ICLR.cc/2013/Conference/-/Blind_Submission'
 ]
 
 def save_forum_review_to_db(invitation):
@@ -43,5 +33,7 @@ def save_forum_review_to_db(invitation):
         
         print(f"포럼 {forum_id}의 정보를 데이터베이스에 저장했습니다.")
 
-for invitation in invitations:
-    save_forum_review_to_db(invitation)
+
+if __name__ == '__main__':
+    for invitation in invitations:
+        save_forum_review_to_db(invitation)
