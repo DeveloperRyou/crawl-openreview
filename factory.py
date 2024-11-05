@@ -21,11 +21,11 @@ def convert_review_to_review_entity(review):
     empirical_novelty_and_significance_raw = review_content.get('empirical_novelty_and_significance', '')
     recommendation_raw = review_content.get('recommendation', '')
 
-    confidence = confidence_raw.split(':')
-    correctness = correctness_raw.split(':')
-    technical_novelty_and_significance = technical_novelty_and_significance_raw.split(':')
-    empirical_novelty_and_significance = empirical_novelty_and_significance_raw.split(':')
-    recommendation = recommendation_raw.split(':')
+    confidence = confidence_raw.split(': ')
+    correctness = correctness_raw.split(': ')
+    technical_novelty_and_significance = technical_novelty_and_significance_raw.split(': ')
+    empirical_novelty_and_significance = empirical_novelty_and_significance_raw.split(': ')
+    recommendation = recommendation_raw.split(': ')
 
     confidence_point = int(confidence[0]) if confidence and len(confidence) == 2 else None
     confidence_reasoning = confidence[1] if confidence and len(confidence) == 2  else None
